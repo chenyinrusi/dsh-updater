@@ -1,3 +1,6 @@
 __pycache__/
 update-dsh.log
 *.pyc
+build/
+dist/
+*.egg-info/

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsh-updater"
+version = "1.1.0"
+description = "一键更新 DeepSeek Harness 的独立更新器：解决 Windows 上更新 dsh version 时因符号链接权限导致的 pnpm install 崩溃"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "chenyinrusi" }]
+keywords = ["deepseek-harness", "updater", "pnpm", "windows", "agent"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Build Tools",
+]
+dependencies = []
+
+[project.scripts]
+dsh-updater = "dsh_updater:main"
+
+[tool.setuptools]
+packages = ["dsh_updater"]
