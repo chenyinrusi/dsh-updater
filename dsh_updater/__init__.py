@@ -41,7 +41,7 @@ import tempfile
 import time
 from pathlib import Path
 
-UPDATER_VERSION = "1.1.0"
+UPDATER_VERSION = "1.1.1"
 DEFAULT_BRANCH = "origin/master"
 
 GREEN = "\033[32m"
@@ -475,12 +475,12 @@ def main(argv=None):
             fail("pnpm run test", "\n".join(out[-40:]))
 
     # ---- 验证与总结 ----
-    core_lib = (REPO / "packages" / "core" / "lib").is_dir()
-    web_dist = (REPO / "apps" / "web" / "dist").is_dir()
+    lib_ok = (REPO / "apps" / "cli" / "lib").is_dir() or (REPO / "packages" / "core" / "agent" / "lib").is_dir()
+    web_ok = (REPO / "apps" / "web" / "dist" / "index.html").is_file()
     new_head = head_short()
     log("========== 更新完成 ==========", color_code=GREEN)
     log(f"版本:   {pkg_version()}   HEAD: {new_head}")
-    log(f"产物:   packages/core/lib: {'OK' if core_lib else 'MISSING'} | apps/web/dist: {'OK' if web_dist else 'MISSING'}")
+    log(f"产物:   lib 构建: {'OK' if lib_ok else 'MISSING'} | web 构建: {'OK' if web_ok else 'MISSING'}")
     log(f"日志:   {_log_path()}", color_code=DIM)
     if server_up:
         if args.restart:

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dsh-updater"
-version = "1.1.0"
+version = "1.1.1"
 description = "一键更新 DeepSeek Harness 的独立更新器：解决 Windows 上更新 dsh version 时因符号链接权限导致的 pnpm install 崩溃"
 readme = "README.md"
 license = { text = "MIT" }
